@@ -9,7 +9,7 @@ This is the report of Kilian Sennrich for the first assignment of the class "106
 
 From the Website:
 
-## What factors lead to customer satisfaction for an Airline?
+# What factors lead to customer satisfaction for an Airline?
 
 This dataset contains an airline passenger satisfaction survey. What factors are highly correlated to a satisfied (or dissatisfied) passenger? Can you predict passenger satisfaction?
 
@@ -38,3 +38,89 @@ Note that this dataset was modified from another dataset by John D on Kaggle. It
 21. Departure Delay in Minutes: Minutes delayed when departure
 22. Arrival Delay in Minutes: Minutes delayed when Arrival
 23. Satisfaction: Airline satisfaction level(Satisfaction, neutral or dissatisfaction)
+
+# Introduction
+
+This Report explains the analysis of the dataset. It is organized according to the main.R file, that contains the analysis. This report explains the thought process behind the analysis. Assumptions in the analysis are clearly documented here!!
+
+# Table of contents
+
+1. Inspection
+2. 
+3. 
+
+
+
+## Inspection, Balance, Missing values
+
+A first look into the data revealed, that the data is pretty clean. There were 2 columns to be deleted (V1, id) that contain unique identifiers to single observations and that don't add value to the analysis, since we do not try to make statements about single customers. 
+The data is generally well balanced, with approx. 50 percent of the criterion (satisfaction) in both groups. Therefore, in this regard no further steps are necessary.
+Missing values (NAs and sometimes NULL objects) can only be upserved in the "Arrival Delay in Minutes" column. There are 310 missing values in total, that distributed approximately equally between the two attributes of the criterion. I had the hypothesis, that the 310 values might all originate from the same plane, since an average airplane could transport about that amount of passengers. To check this i made the following assumption **If the NA values originated from passengers of the same flight, the flight distance for all these passengers would be equivalent **. The hypothesis is wrong, since the max number of passengers that had the same flight distance was 5. 
+In order to get good data for the classifier, I wanted to get rid of the NAs. For imputation I had three ideas in mind: replacement by mean, delete rows or MICE. Mice seemed an over-the-top approach for only 310 missing values. Both of the other approaches would work, but i chose to omit the NA rows, since the proportion of data that falls away is very small (0.2 %) and having to many identical values (mean imputation) in the data, sometimes affects the accuracy of the model.
+
+## descriptive statistics and visualisation
+
+### Nominal Variables - Variable by criterion
+
+```{r include=FALSE}
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+source("..//code//packages.R")
+X<-fread("..//data//train.csv")
+X<-setDF(X)
+X<-subset(X, select = -c(V1, id))
+X<-na.omit(X)
+for (i in 1:length(X)){
+  if(is.character(X[,i])){
+    X[,i]<-as.factor(X[,i])
+  }
+}
+
+```
+
+
+```{r echo=FALSE}
+##### Nominal #####
+  
+#gender
+genplot<-ggplot(X, aes(x = Gender))+
+  geom_bar() +
+  facet_wrap(~satisfaction) +
+  theme(axis.text.x = element_text(angle = 90))
+
+#Customer Type
+custypplot<-ggplot(X, aes(x = `Customer Type`))+
+  geom_bar() +
+  facet_wrap(~satisfaction) +
+  theme(axis.text.x = element_text(angle = 90))
+
+#Type of Travel
+typtraplot<-ggplot(X, aes(x = `Type of Travel`))+
+  geom_bar() +
+  facet_wrap(~satisfaction) +
+  theme(axis.text.x = element_text(angle = 90))
+
+#Class
+claplot<-ggplot(X, aes(x = Class))+
+  geom_bar() +
+  facet_wrap(~satisfaction) +
+  theme(axis.text.x = element_text(angle = 90))
+  
+grid.arrange(genplot, custypplot, typtraplot, claplot, nrow=2, heights = c(10,10))
+
+library(knitr)
+tabyl(X, Gender) %>% kable()
+tabyl(X, `Customer Type`) %>% kable()
+tabyl(X, `Type of Travel`) %>% kable()
+tabyl(X, Class) %>% kable()
+```
+
+### Ordinal Variables
+
+```{r}
+
+```
+
+
+## Third Example
+
+
