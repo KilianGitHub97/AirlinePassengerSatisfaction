@@ -56,60 +56,38 @@ X<-na.omit(X)
 #delete variables which are no longer of use
 rm(onlyna)
 
-# Conversion --------------------------------------------------------------
-
-#Convert all character variables into factors (for efficiency)
-#Note: This step is specifically for data vizualisation, I might recode
-#some variables as dummys for modelling later
-for (i in 1:length(X)){
-  if(is.character(X[,i])){
-    X[,i]<-as.factor(X[,i])
-  }
-}
-
-
-glimpse(X)
-# descriptive statistics and visualisation --------------------------------
+# Vizualisation -----------------------------------------------------------
 
 #make barplots for ordinal and nominal variables
-ggbarplots<-list()
-nominalordinal<-names(X)[c(1:2, 4:20)]
-count=1
-for (i in nominalordinal) {
-  ggbarplots[[count]]<-ggplot(X, aes(x = X[,count])) +
+for (i in c(1:2, 4:5, 7:20)) {
+  ggbarplot<-ggplot(X, aes(x = X[,i])) +
     geom_bar() +
     facet_wrap(~satisfaction) +
-    ggtitle(paste(i)) +
+    ggtitle(paste(names(X)[i])) +
     xlab("") +
     theme(axis.text.x = element_text(angle = 90))
-  count=count+1
+  ggsave(paste0("..//plots//plot",i,".jpg"),ggbarplot)
 }
 
-##### Nominal Variables #####
-grid.arrange(ggbarplots[[1]], ggbarplots[[2]], ggbarplots[[3]], ggbarplots[[4]], nrow=2)
+#make histograms for intervall variables
+for (i in c(3, 6, 21:22)) {
+  gghistogram<-ggplot(X, aes(x = X[,i])) +
+    geom_histogram() +
+    facet_wrap(~satisfaction) +
+    ggtitle(paste(names(X)[i])) +
+    xlab("") +
+    theme(axis.text.x = element_text(angle = 90))
+  ggsave(paste0("..//plots//plot",i,".jpg"),gghistogram)
+}
 
-##### Ordinal Variables #####
-grid.arrange(ggbarplots[[5]], ggbarplots[[6]], ggbarplots[[7]], ggbarplots[[8]], nrow=2)
+#delete variables which are no longer of use
+rm(ggbarplot, gghistogram, i)
 
-  ##### intervall #####
-  
-  #Age
-  ggplot(X, aes(x = Age))+
-    geom_histogram() +
-    facet_wrap(~satisfaction)
-  
-  #Flight Distance
-  ggplot(X, aes(x = `Flight Distance`))+
-    geom_histogram() +
-    facet_wrap(~satisfaction)
-  
-  #Departure Delay in Minutes
-  ggplot(X, aes(x = `Departure Delay in Minutes`))+
-    geom_histogram() +
-    facet_wrap(~satisfaction)
-  
-  #Arrival Delay in Minutes
-  ggplot(X, aes(x = `Arrival Delay in Minutes`))+
-    geom_histogram() +
-    facet_wrap(~satisfaction)
-  
+
+# Feature engineering -----------------------------------------------------
+
+
+
+# Correlation -------------------------------------------------------------
+
+

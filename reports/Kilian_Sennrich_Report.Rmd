@@ -46,7 +46,7 @@ This Report explains the analysis of the dataset. It is organized according to t
 # Table of contents
 
 1. Inspection
-2. 
+2. Visualisation
 3. 
 
 
@@ -58,9 +58,9 @@ The data is generally well balanced, with approx. 50 percent of the criterion (s
 Missing values (NAs and sometimes NULL objects) can only be upserved in the "Arrival Delay in Minutes" column. There are 310 missing values in total, that distributed approximately equally between the two attributes of the criterion. I had the hypothesis, that the 310 values might all originate from the same plane, since an average airplane could transport about that amount of passengers. To check this i made the following assumption **If the NA values originated from passengers of the same flight, the flight distance for all these passengers would be equivalent **. The hypothesis is wrong, since the max number of passengers that had the same flight distance was 5. 
 In order to get good data for the classifier, I wanted to get rid of the NAs. For imputation I had three ideas in mind: replacement by mean, delete rows or MICE. Mice seemed an over-the-top approach for only 310 missing values. Both of the other approaches would work, but i chose to omit the NA rows, since the proportion of data that falls away is very small (0.2 %) and having to many identical values (mean imputation) in the data, sometimes affects the accuracy of the model.
 
-## descriptive statistics and visualisation
+## visualisation
 
-### Nominal Variables - Variable by criterion
+### Variable by criterion
 
 ```{r include=FALSE}
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
@@ -77,50 +77,38 @@ for (i in 1:length(X)){
 
 ```
 
+\begin{figure}
+    \includegraphics[width=.24\textwidth]{..//plots//plot1.jpg}\hfill
+    \includegraphics[width=.24\textwidth]{..//plots//plot2.jpg}\hfill
+    \includegraphics[width=.24\textwidth]{..//plots//plot4.jpg}\hfill
+    \includegraphics[width=.24\textwidth]{..//plots//plot5.jpg}\hfill
+    \caption{Vizualisation of all nominal variables by criterion}\label{fig:foobar}
+\end{figure}
 
-```{r echo=FALSE}
-##### Nominal #####
-  
-#gender
-genplot<-ggplot(X, aes(x = Gender))+
-  geom_bar() +
-  facet_wrap(~satisfaction) +
-  theme(axis.text.x = element_text(angle = 90))
+\begin{figure}
+    \includegraphics[width=.24\textwidth]{..//plots//plot7.jpg}\hfill
+    \includegraphics[width=.24\textwidth]{..//plots//plot8.jpg}\hfill
+    \includegraphics[width=.24\textwidth]{..//plots//plot9.jpg}\hfill
+    \includegraphics[width=.24\textwidth]{..//plots//plot10.jpg}\hfill
+    \includegraphics[width=.24\textwidth]{..//plots//plot11.jpg}\hfill
+    \includegraphics[width=.24\textwidth]{..//plots//plot12.jpg}\hfill
+    \includegraphics[width=.24\textwidth]{..//plots//plot13.jpg}\hfill
+    \includegraphics[width=.24\textwidth]{..//plots//plot14.jpg}\hfill
+    \includegraphics[width=.24\textwidth]{..//plots//plot15.jpg}\hfill
+    \includegraphics[width=.24\textwidth]{..//plots//plot16.jpg}\hfill
+    \includegraphics[width=.24\textwidth]{..//plots//plot17.jpg}\hfill
+    \includegraphics[width=.24\textwidth]{..//plots//plot18.jpg}\hfill
+    \includegraphics[width=.24\textwidth]{..//plots//plot19.jpg}\hfill
+    \includegraphics[width=.24\textwidth]{..//plots//plot20.jpg}\hfill
+    \caption{Vizualisation of all ordinal variables by criterion}\label{fig:foobar}
+\end{figure}
 
-#Customer Type
-custypplot<-ggplot(X, aes(x = `Customer Type`))+
-  geom_bar() +
-  facet_wrap(~satisfaction) +
-  theme(axis.text.x = element_text(angle = 90))
-
-#Type of Travel
-typtraplot<-ggplot(X, aes(x = `Type of Travel`))+
-  geom_bar() +
-  facet_wrap(~satisfaction) +
-  theme(axis.text.x = element_text(angle = 90))
-
-#Class
-claplot<-ggplot(X, aes(x = Class))+
-  geom_bar() +
-  facet_wrap(~satisfaction) +
-  theme(axis.text.x = element_text(angle = 90))
-  
-grid.arrange(genplot, custypplot, typtraplot, claplot, nrow=2, heights = c(10,10))
-
-library(knitr)
-tabyl(X, Gender) %>% kable()
-tabyl(X, `Customer Type`) %>% kable()
-tabyl(X, `Type of Travel`) %>% kable()
-tabyl(X, Class) %>% kable()
-```
-
-### Ordinal Variables
-
-```{r}
-
-```
-
-
-## Third Example
+\begin{figure}
+    \includegraphics[width=.24\textwidth]{..//plots//plot3.jpg}\hfill
+    \includegraphics[width=.24\textwidth]{..//plots//plot6.jpg}\hfill
+    \includegraphics[width=.24\textwidth]{..//plots//plot21.jpg}\hfill
+    \includegraphics[width=.24\textwidth]{..//plots//plot22.jpg}\hfill
+    \caption{Vizualisation of all intervall variables by criterion}\label{fig:foobar}
+\end{figure}
 
 
