@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.3.26)  1 APR 2021 21:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.3.26)  3 APR 2021 19:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -594,165 +594,176 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 {c:/Users/Kilian/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdft
 ex.map}]
-<..//plots//plot1.jpg, id=67, 505.89pt x 505.89pt>
+<..//plots//plot1.jpg, id=71, 505.89pt x 505.89pt>
 File: ..//plots//plot1.jpg Graphic file (type jpg)
 <use ..//plots//plot1.jpg>
-Package pdftex.def Info: ..//plots//plot1.jpg  used on input line 213.
+Package pdftex.def Info: ..//plots//plot1.jpg  used on input line 221.
 (pdftex.def)             Requested size: 112.73964pt x 112.73964pt.
-<..//plots//plot2.jpg, id=68, 505.89pt x 505.89pt>
+<..//plots//plot2.jpg, id=72, 505.89pt x 505.89pt>
 File: ..//plots//plot2.jpg Graphic file (type jpg)
 <use ..//plots//plot2.jpg>
-Package pdftex.def Info: ..//plots//plot2.jpg  used on input line 214.
+Package pdftex.def Info: ..//plots//plot2.jpg  used on input line 222.
 (pdftex.def)             Requested size: 112.73964pt x 112.73964pt.
-<..//plots//plot4.jpg, id=69, 505.89pt x 505.89pt>
+<..//plots//plot4.jpg, id=73, 505.89pt x 505.89pt>
 File: ..//plots//plot4.jpg Graphic file (type jpg)
 <use ..//plots//plot4.jpg>
-Package pdftex.def Info: ..//plots//plot4.jpg  used on input line 215.
+Package pdftex.def Info: ..//plots//plot4.jpg  used on input line 223.
 (pdftex.def)             Requested size: 112.73964pt x 112.73964pt.
-<..//plots//plot5.jpg, id=70, 505.89pt x 505.89pt>
+<..//plots//plot5.jpg, id=74, 505.89pt x 505.89pt>
 File: ..//plots//plot5.jpg Graphic file (type jpg)
 <use ..//plots//plot5.jpg>
-Package pdftex.def Info: ..//plots//plot5.jpg  used on input line 216.
+Package pdftex.def Info: ..//plots//plot5.jpg  used on input line 224.
 (pdftex.def)             Requested size: 112.73964pt x 112.73964pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 220--222
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 220--222
-
- []
-
-<..//plots//plot7.jpg, id=71, 505.89pt x 505.89pt>
+<..//plots//plot7.jpg, id=75, 505.89pt x 505.89pt>
 File: ..//plots//plot7.jpg Graphic file (type jpg)
 <use ..//plots//plot7.jpg>
-Package pdftex.def Info: ..//plots//plot7.jpg  used on input line 224.
+Package pdftex.def Info: ..//plots//plot7.jpg  used on input line 229.
 (pdftex.def)             Requested size: 112.73964pt x 112.73964pt.
-<..//plots//plot8.jpg, id=72, 505.89pt x 505.89pt>
+<..//plots//plot8.jpg, id=76, 505.89pt x 505.89pt>
 File: ..//plots//plot8.jpg Graphic file (type jpg)
 <use ..//plots//plot8.jpg>
-Package pdftex.def Info: ..//plots//plot8.jpg  used on input line 225.
+Package pdftex.def Info: ..//plots//plot8.jpg  used on input line 230.
 (pdftex.def)             Requested size: 112.73964pt x 112.73964pt.
-<..//plots//plot9.jpg, id=73, 505.89pt x 505.89pt>
+<..//plots//plot9.jpg, id=77, 505.89pt x 505.89pt>
 File: ..//plots//plot9.jpg Graphic file (type jpg)
 <use ..//plots//plot9.jpg>
-Package pdftex.def Info: ..//plots//plot9.jpg  used on input line 226.
+Package pdftex.def Info: ..//plots//plot9.jpg  used on input line 231.
 (pdftex.def)             Requested size: 112.73964pt x 112.73964pt.
-<..//plots//plot10.jpg, id=74, 505.89pt x 505.89pt>
+<..//plots//plot10.jpg, id=78, 505.89pt x 505.89pt>
 File: ..//plots//plot10.jpg Graphic file (type jpg)
 <use ..//plots//plot10.jpg>
-Package pdftex.def Info: ..//plots//plot10.jpg  used on input line 227.
+Package pdftex.def Info: ..//plots//plot10.jpg  used on input line 232.
 (pdftex.def)             Requested size: 112.73964pt x 112.73964pt.
-<..//plots//plot11.jpg, id=75, 505.89pt x 505.89pt>
+<..//plots//plot11.jpg, id=79, 505.89pt x 505.89pt>
 File: ..//plots//plot11.jpg Graphic file (type jpg)
 <use ..//plots//plot11.jpg>
-Package pdftex.def Info: ..//plots//plot11.jpg  used on input line 228.
+Package pdftex.def Info: ..//plots//plot11.jpg  used on input line 233.
 (pdftex.def)             Requested size: 112.73964pt x 112.73964pt.
-<..//plots//plot12.jpg, id=76, 505.89pt x 505.89pt>
+<..//plots//plot12.jpg, id=80, 505.89pt x 505.89pt>
 File: ..//plots//plot12.jpg Graphic file (type jpg)
 <use ..//plots//plot12.jpg>
-Package pdftex.def Info: ..//plots//plot12.jpg  used on input line 229.
+Package pdftex.def Info: ..//plots//plot12.jpg  used on input line 234.
 (pdftex.def)             Requested size: 112.73964pt x 112.73964pt.
-<..//plots//plot13.jpg, id=77, 505.89pt x 505.89pt>
+<..//plots//plot13.jpg, id=81, 505.89pt x 505.89pt>
 File: ..//plots//plot13.jpg Graphic file (type jpg)
 <use ..//plots//plot13.jpg>
-Package pdftex.def Info: ..//plots//plot13.jpg  used on input line 230.
+Package pdftex.def Info: ..//plots//plot13.jpg  used on input line 235.
 (pdftex.def)             Requested size: 112.73964pt x 112.73964pt.
-<..//plots//plot14.jpg, id=78, 505.89pt x 505.89pt>
+<..//plots//plot14.jpg, id=82, 505.89pt x 505.89pt>
 File: ..//plots//plot14.jpg Graphic file (type jpg)
 <use ..//plots//plot14.jpg>
-Package pdftex.def Info: ..//plots//plot14.jpg  used on input line 231.
+Package pdftex.def Info: ..//plots//plot14.jpg  used on input line 236.
 (pdftex.def)             Requested size: 112.73964pt x 112.73964pt.
-<..//plots//plot15.jpg, id=79, 505.89pt x 505.89pt>
+<..//plots//plot15.jpg, id=83, 505.89pt x 505.89pt>
 File: ..//plots//plot15.jpg Graphic file (type jpg)
 <use ..//plots//plot15.jpg>
-Package pdftex.def Info: ..//plots//plot15.jpg  used on input line 232.
+Package pdftex.def Info: ..//plots//plot15.jpg  used on input line 237.
 (pdftex.def)             Requested size: 112.73964pt x 112.73964pt.
-<..//plots//plot16.jpg, id=80, 505.89pt x 505.89pt>
+<..//plots//plot16.jpg, id=84, 505.89pt x 505.89pt>
 File: ..//plots//plot16.jpg Graphic file (type jpg)
 <use ..//plots//plot16.jpg>
-Package pdftex.def Info: ..//plots//plot16.jpg  used on input line 233.
+Package pdftex.def Info: ..//plots//plot16.jpg  used on input line 238.
 (pdftex.def)             Requested size: 112.73964pt x 112.73964pt.
-<..//plots//plot17.jpg, id=81, 505.89pt x 505.89pt>
+<..//plots//plot17.jpg, id=85, 505.89pt x 505.89pt>
 File: ..//plots//plot17.jpg Graphic file (type jpg)
 <use ..//plots//plot17.jpg>
-Package pdftex.def Info: ..//plots//plot17.jpg  used on input line 234.
+Package pdftex.def Info: ..//plots//plot17.jpg  used on input line 239.
 (pdftex.def)             Requested size: 112.73964pt x 112.73964pt.
-<..//plots//plot18.jpg, id=82, 505.89pt x 505.89pt>
+<..//plots//plot18.jpg, id=86, 505.89pt x 505.89pt>
 File: ..//plots//plot18.jpg Graphic file (type jpg)
 <use ..//plots//plot18.jpg>
-Package pdftex.def Info: ..//plots//plot18.jpg  used on input line 235.
+Package pdftex.def Info: ..//plots//plot18.jpg  used on input line 240.
 (pdftex.def)             Requested size: 112.73964pt x 112.73964pt.
-<..//plots//plot19.jpg, id=83, 505.89pt x 505.89pt>
+<..//plots//plot19.jpg, id=87, 505.89pt x 505.89pt>
 File: ..//plots//plot19.jpg Graphic file (type jpg)
 <use ..//plots//plot19.jpg>
-Package pdftex.def Info: ..//plots//plot19.jpg  used on input line 236.
+Package pdftex.def Info: ..//plots//plot19.jpg  used on input line 241.
 (pdftex.def)             Requested size: 112.73964pt x 112.73964pt.
-<..//plots//plot20.jpg, id=84, 505.89pt x 505.89pt>
+<..//plots//plot20.jpg, id=88, 505.89pt x 505.89pt>
 File: ..//plots//plot20.jpg Graphic file (type jpg)
 <use ..//plots//plot20.jpg>
-Package pdftex.def Info: ..//plots//plot20.jpg  used on input line 237.
+Package pdftex.def Info: ..//plots//plot20.jpg  used on input line 242.
 (pdftex.def)             Requested size: 112.73964pt x 112.73964pt.
-<..//plots//plot3.jpg, id=85, 505.89pt x 505.89pt>
+<..//plots//plot3.jpg, id=89, 505.89pt x 505.89pt>
 File: ..//plots//plot3.jpg Graphic file (type jpg)
 <use ..//plots//plot3.jpg>
-Package pdftex.def Info: ..//plots//plot3.jpg  used on input line 242.
+Package pdftex.def Info: ..//plots//plot3.jpg  used on input line 247.
 (pdftex.def)             Requested size: 112.73964pt x 112.73964pt.
-<..//plots//plot6.jpg, id=86, 505.89pt x 505.89pt>
+<..//plots//plot6.jpg, id=90, 505.89pt x 505.89pt>
 File: ..//plots//plot6.jpg Graphic file (type jpg)
 <use ..//plots//plot6.jpg>
-Package pdftex.def Info: ..//plots//plot6.jpg  used on input line 243.
+Package pdftex.def Info: ..//plots//plot6.jpg  used on input line 248.
 (pdftex.def)             Requested size: 112.73964pt x 112.73964pt.
-<..//plots//plot21.jpg, id=87, 505.89pt x 505.89pt>
+<..//plots//plot21.jpg, id=91, 505.89pt x 505.89pt>
 File: ..//plots//plot21.jpg Graphic file (type jpg)
 <use ..//plots//plot21.jpg>
-Package pdftex.def Info: ..//plots//plot21.jpg  used on input line 244.
+Package pdftex.def Info: ..//plots//plot21.jpg  used on input line 249.
 (pdftex.def)             Requested size: 112.73964pt x 112.73964pt.
-<..//plots//plot22.jpg, id=88, 505.89pt x 505.89pt>
+<..//plots//plot22.jpg, id=92, 505.89pt x 505.89pt>
 File: ..//plots//plot22.jpg Graphic file (type jpg)
 <use ..//plots//plot22.jpg>
-Package pdftex.def Info: ..//plots//plot22.jpg  used on input line 245.
+Package pdftex.def Info: ..//plots//plot22.jpg  used on input line 250.
 (pdftex.def)             Requested size: 112.73964pt x 112.73964pt.
-[2 <..//plots//plot1.jpg> <..//plots//plot2.jpg> <..//plots//plot4.jpg> <..//pl
-ots//plot5.jpg>] [3 <..//plots//plot7.jpg> <..//plots//plot8.jpg> <..//plots//p
+[2] [3 <..//plots//plot1.jpg> <..//plots//plot2.jpg> <..//plots//plot4.jpg> <..
+//plots//plot5.jpg> <..//plots//plot7.jpg> <..//plots//plot8.jpg> <..//plots//p
 lot9.jpg> <..//plots//plot10.jpg> <..//plots//plot11.jpg> <..//plots//plot12.jp
 g> <..//plots//plot13.jpg> <..//plots//plot14.jpg> <..//plots//plot15.jpg> <../
 /plots//plot16.jpg> <..//plots//plot17.jpg> <..//plots//plot18.jpg> <..//plots/
-/plot19.jpg> <..//plots//plot20.jpg> <..//plots//plot3.jpg> <..//plots//plot6.j
-pg> <..//plots//plot21.jpg> <..//plots//plot22.jpg>]
-<..//plots//heatmap.jpg, id=108, 740.0448pt x 734.2632pt>
+/plot19.jpg> <..//plots//plot20.jpg>]
+<..//plots//heatmap.jpg, id=115, 740.0448pt x 734.2632pt>
 File: ..//plots//heatmap.jpg Graphic file (type jpg)
 <use ..//plots//heatmap.jpg>
-Package pdftex.def Info: ..//plots//heatmap.jpg  used on input line 255.
+Package pdftex.def Info: ..//plots//heatmap.jpg  used on input line 335.
 (pdftex.def)             Requested size: 469.75385pt x 466.0839pt.
-[4 <..//plots//heatmap.jpg>] [5] (./Kilian_Sennrich_Report.aux)
-
-LaTeX Warning: There were multiply-defined labels.
-
-Package rerunfilecheck Info: File `Kilian_Sennrich_Report.out' has not changed.
-
-(rerunfilecheck)             Checksum: 6A6B5DE35293CF12BE8096D8C7EAC262;1276.
- ) 
+[4 <..//plots//plot3.jpg> <..//plots//plot6.jpg> <..//plots//plot21.jpg> <..//p
+lots//plot22.jpg>] [5 <..//plots//heatmap.jpg>] [6]
+<..//plots//screeplot.png, id=139, 752.8125pt x 746.03719pt>
+File: ..//plots//screeplot.png Graphic file (type png)
+<use ..//plots//screeplot.png>
+Package pdftex.def Info: ..//plots//screeplot.png  used on input line 465.
+(pdftex.def)             Requested size: 225.4779pt x 223.4486pt.
+<..//plots//fact1.png, id=140, 752.8125pt x 746.03719pt>
+File: ..//plots//fact1.png Graphic file (type png)
+<use ..//plots//fact1.png>
+Package pdftex.def Info: ..//plots//fact1.png  used on input line 466.
+(pdftex.def)             Requested size: 225.4779pt x 223.4486pt.
+<..//plots//fact2.png, id=141, 752.8125pt x 746.03719pt>
+File: ..//plots//fact2.png Graphic file (type png)
+<use ..//plots//fact2.png>
+Package pdftex.def Info: ..//plots//fact2.png  used on input line 471.
+(pdftex.def)             Requested size: 112.7332pt x 111.7186pt.
+<..//plots//fact3.png, id=142, 752.8125pt x 746.03719pt>
+File: ..//plots//fact3.png Graphic file (type png)
+<use ..//plots//fact3.png>
+Package pdftex.def Info: ..//plots//fact3.png  used on input line 472.
+(pdftex.def)             Requested size: 112.7332pt x 111.7186pt.
+File: ..//plots//fact3.png Graphic file (type png)
+<use ..//plots//fact3.png>
+Package pdftex.def Info: ..//plots//fact3.png  used on input line 473.
+(pdftex.def)             Requested size: 112.7332pt x 111.7186pt.
+<..//plots//fact4.png, id=143, 752.8125pt x 746.03719pt>
+File: ..//plots//fact4.png Graphic file (type png)
+<use ..//plots//fact4.png>
+Package pdftex.def Info: ..//plots//fact4.png  used on input line 474.
+(pdftex.def)             Requested size: 112.7332pt x 111.7186pt.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 4
+85.
+(c:/Users/Kilian/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [7
+! pdfTeX error (ext4): \pdfendlink ended up in different nesting level than \pd
+fstartlink.
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.514 
+       
 Here is how much of TeX's memory you used:
- 10578 strings out of 480962
- 154905 string characters out of 5905732
- 463747 words of memory out of 5000000
- 27541 multiletter control sequences out of 15000+600000
- 448715 words of font info for 65 fonts, out of 8000000 for 9000
+ 10650 strings out of 480962
+ 156523 string characters out of 5905732
+ 467873 words of memory out of 5000000
+ 27598 multiletter control sequences out of 15000+600000
+ 453343 words of font info for 67 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 71i,6n,74p,416b,441s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/Users/Kilian/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.
-enc}<c:/Users/Kilian/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/l
-mbx10.pfb><c:/Users/Kilian/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/publi
-c/lm/lmbx12.pfb><c:/Users/Kilian/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1
-/public/lm/lmr10.pfb><c:/Users/Kilian/AppData/Roaming/TinyTeX/texmf-dist/fonts/
-type1/public/lm/lmr12.pfb><c:/Users/Kilian/AppData/Roaming/TinyTeX/texmf-dist/f
-onts/type1/public/lm/lmr17.pfb>
-Output written on Kilian_Sennrich_Report.pdf (5 pages, 4440604 bytes).
-PDF statistics:
- 156 PDF objects out of 1000 (max. 8388607)
- 119 compressed objects within 2 object streams
- 54 named destinations out of 1000 (max. 500000)
- 172 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 71i,6n,74p,416b,445s stack positions out of 5000i,500n,10000p,200000b,80000s
 
+!  ==> Fatal error occurred, no output PDF file produced!
