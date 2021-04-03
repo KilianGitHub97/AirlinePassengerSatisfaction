@@ -5,7 +5,6 @@ pkgs<-c(
   "tidyverse",
   "data.table",
   "janitor",
-  "gridExtra",
   "knitr",
   "psych",
   "caret",
