@@ -1,6 +1,4 @@
 # Airline Passenger Satisfaction
-This repository holds the full analysis of the Airline Passenger Satisfaction Task from Kaggle: https://www.kaggle.com/teejmahal20/airline-passenger-satisfaction
-
 This is the report for the first assignment of the class “10616 Machine Learning”. The task is to perform a complete analysis for one of the 10 datasets provided in the lecture.
 I chose the “Airline Passenger Satisfaction” dataset from kaggle:
 https://www.kaggle.com/teejmahal20/airline-passenger-satisfaction Time to complete task: 10 Days (Handin on April, 6., 2021)
