@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.4.3)  3 APR 2021 21:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.4.3)  5 APR 2021 18:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -749,14 +749,15 @@ File: ..//plots//fact3.png Graphic file (type png)
 <use ..//plots//fact3.png>
 Package pdftex.def Info: ..//plots//fact3.png  used on input line 469.
 (pdftex.def)             Requested size: 112.7332pt x 111.7186pt.
-File: ..//plots//fact3.png Graphic file (type png)
-<use ..//plots//fact3.png>
-Package pdftex.def Info: ..//plots//fact3.png  used on input line 470.
-(pdftex.def)             Requested size: 112.7332pt x 111.7186pt.
 <..//plots//fact4.png, id=154, 752.8125pt x 746.03719pt>
 File: ..//plots//fact4.png Graphic file (type png)
 <use ..//plots//fact4.png>
-Package pdftex.def Info: ..//plots//fact4.png  used on input line 471.
+Package pdftex.def Info: ..//plots//fact4.png  used on input line 470.
+(pdftex.def)             Requested size: 112.7332pt x 111.7186pt.
+<..//plots//fact5.png, id=155, 752.8125pt x 746.03719pt>
+File: ..//plots//fact5.png Graphic file (type png)
+<use ..//plots//fact5.png>
+Package pdftex.def Info: ..//plots//fact5.png  used on input line 471.
 (pdftex.def)             Requested size: 112.7332pt x 111.7186pt.
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 4
 82.
@@ -770,29 +771,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 552--553
 
  []
 
-[8 <..//plots//fact2.png> <..//plots//fact3.png> <..//plots//fact4.png>]
-<..//plots//decisiontree.jpg, id=179, 752.8125pt x 746.03719pt>
+[8 <..//plots//fact2.png> <..//plots//fact3.png> <..//plots//fact4.png> <..//pl
+ots//fact5.png>]
+<..//plots//decisiontree.jpg, id=181, 752.8125pt x 746.03719pt>
 File: ..//plots//decisiontree.jpg Graphic file (type jpg)
 <use ..//plots//decisiontree.jpg>
 Package pdftex.def Info: ..//plots//decisiontree.jpg  used on input line 585.
 (pdftex.def)             Requested size: 225.4779pt x 223.4486pt.
-<..//plots//outputdecisiontree.jpg, id=180, 572.89032pt x 491.58656pt>
+<..//plots//outputdecisiontree.jpg, id=182, 572.89032pt x 491.58656pt>
 File: ..//plots//outputdecisiontree.jpg Graphic file (type jpg)
 <use ..//plots//outputdecisiontree.jpg>
 Package pdftex.def Info: ..//plots//outputdecisiontree.jpg  used on input line 
 586.
 (pdftex.def)             Requested size: 225.48059pt x 193.48071pt.
 [9 <..//plots//decisiontree.jpg> <..//plots//outputdecisiontree.jpg>]
-<..//plots//comparison.jpg, id=190, 537.50812pt x 224.33812pt>
+<..//plots//comparison.jpg, id=192, 537.50812pt x 224.33812pt>
 File: ..//plots//comparison.jpg Graphic file (type jpg)
 <use ..//plots//comparison.jpg>
-Package pdftex.def Info: ..//plots//comparison.jpg  used on input line 647.
+Package pdftex.def Info: ..//plots//comparison.jpg  used on input line 648.
 (pdftex.def)             Requested size: 225.48122pt x 94.1084pt.
-<..//plots//boxplotcomparison.jpg, id=191, 752.8125pt x 746.03719pt>
+<..//plots//boxplotcomparison.jpg, id=193, 752.8125pt x 746.03719pt>
 File: ..//plots//boxplotcomparison.jpg Graphic file (type jpg)
 <use ..//plots//boxplotcomparison.jpg>
 Package pdftex.def Info: ..//plots//boxplotcomparison.jpg  used on input line 6
-48.
+49.
 (pdftex.def)             Requested size: 225.4779pt x 223.4486pt.
 [10 <..//plots//comparison.jpg> <..//plots//boxplotcomparison.jpg>] (./Kilian_S
 ennrich_Report.aux)
@@ -801,13 +803,13 @@ LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `Kilian_Sennrich_Report.out' has not changed.
 
-(rerunfilecheck)             Checksum: E220F57BE6CADCA652E1D5AC37395783;2139.
+(rerunfilecheck)             Checksum: 7CC863FE1D4DBAEEDCC956BCE3E3D1C8;2139.
  ) 
 Here is how much of TeX's memory you used:
- 10707 strings out of 480954
- 157815 string characters out of 5905583
+ 10713 strings out of 480954
+ 157943 string characters out of 5905583
  460248 words of memory out of 5000000
- 27631 multiletter control sequences out of 15000+600000
+ 27636 multiletter control sequences out of 15000+600000
  453343 words of font info for 67 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  71i,6n,74p,416b,445s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -820,10 +822,10 @@ pe1/public/lm/lmr10.pfb><c:/Users/Kilian/AppData/Roaming/TinyTeX/texmf-dist/fon
 ts/type1/public/lm/lmr12.pfb><c:/Users/Kilian/AppData/Roaming/TinyTeX/texmf-dis
 t/fonts/type1/public/lm/lmr17.pfb><c:/Users/Kilian/AppData/Roaming/TinyTeX/texm
 f-dist/fonts/type1/public/lm/lmri10.pfb>
-Output written on Kilian_Sennrich_Report.pdf (10 pages, 4819008 bytes).
+Output written on Kilian_Sennrich_Report.pdf (10 pages, 4832790 bytes).
 PDF statistics:
- 245 PDF objects out of 1000 (max. 8388607)
+ 247 PDF objects out of 1000 (max. 8388607)
  188 compressed objects within 2 object streams
  81 named destinations out of 1000 (max. 500000)
- 249 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 254 words of extra memory for PDF output out of 10000 (max. 10000000)
 

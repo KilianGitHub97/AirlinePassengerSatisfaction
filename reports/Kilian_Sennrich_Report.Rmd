@@ -46,25 +46,25 @@ This Report explains the analysis of the dataset. It is organized according to t
 
 # Table of contents
 
-1. Inspection
-2. Visualisation
+1. Inspection, Balance, Missing Values
+2. Visualization
 3. Correlation Analysis
-4. Exploratory Factor Analysis
+4. Factor Analysis for Mixed Data (FAMD)
 5. Machine Learning for Deeper Insights
 
 
 
-## Inspection, Balance, Missing values
+## Inspection, Balance, Missing Values
 
 A first look into the data revealed, that the data is pretty clean. There were 2 columns to be deleted (V1, id) that contain unique identifiers to single observations and that don't add value to the analysis, since we do not try to make statements about single customers. 
-The data is generally well balanced, with approx. 50 percent of the criterion (satisfaction) in both groups. Therefore, in this regard no further steps are necessary.
+The data is generally well balanced, with approx. 50 percent of the criterion (satisfaction) in both groups. Therefore, in this regard, no further steps are necessary.
 Missing values (NAs and sometimes NULL objects) can only be upserved in the "Arrival Delay in Minutes" column. There are 310 missing values in total, that distributed approximately equally between the two attributes of the criterion. I had the hypothesis, that the 310 values might all originate from the same plane, since an average airplane could transport about that amount of passengers. To check this i made the following assumption **If the NA values originated from passengers of the same flight, the flight distance for all these passengers would be equivalent **. The hypothesis is wrong, since the max number of passengers that had the same flight distance was 5. 
-In order to get good data for the classifier, I wanted to get rid of the NAs. For imputation I had three ideas in mind: replacement by mean, delete rows or MICE. Mice seemed an over-the-top approach for only 310 missing values. Both of the other approaches would work, but i chose to omit the NA rows, since the proportion of data that falls away is very small (0.2 %) and having to many identical values (mean imputation) in the data, sometimes affects the accuracy of the model.
+In order to get good data for the classifier, I wanted to get rid of the NAs. For imputation I had three ideas in mind: replacement by mean, delete rows or MICE. Mice (Multiple Imputation by Chained Equantions) seemed an over-the-top approach for only 310 missing values. Both of the other approaches would work, but i chose to omit the NA rows, since the proportion of data that falls away is very small (0.2 %) and having to many identical values (mean imputation) in the data, sometimes affects the accuracy of the model.
 
 ## Visualisation
 
-*Nominal variables*: Note: Some variables could also be considered ordinal (E.g. Class). The genders are equally distributed in both the "neutral or dissatisfied" and in the "satisfied" box. This is a good sign, since the data is likely to be a sample of a much larger database itself. Of interest is the interaction between Type of Travel and satisfaction. Where most of the "Personal Travel" customers are dissatisfied, this cannot be said about the "Business Travel" customers. Comparing it with the plot for the class, this is a clear hint, that the environment in Business Class leads to more satisfaction. For interventions, this would be a good starting-point. 
-*Ordinal variables*: 0 Means "no answer" given. For ordinal variables, to see whether a variable has let to more satisfaction, the skewedness can be interpreted: When both "satisfied" and "neutral or dissatisfied" plots" are left skewed, the variable is likely to not have a great impact on the satisfaction rating (E.g. Departure time convenient). Further, the height of the barplots can reveal information on the factors that led to dissatisfaction. The heigher the "neutral or dissatisfied" plot in oppose to the "satisfied" plot, the more an item contributes to the dissatisfaction of the customers.   
+*Nominal variables*: Note: Some variables could also be considered ordinal (E.g. Class). The genders are equally distributed in both the "neutral or dissatisfied" and in the "satisfied" box. This is a good sign, since the data is likely to be a sample of a much larger database itself. Of interest is the interaction between "Type of Travel" and "Satisfaction". Where most of the "Personal Travel" customers are dissatisfied, this cannot be said about the "Business Travel" customers. Comparing it with the plot for the class, this is a clear hint, that the environment in Business Class leads to more satisfaction. For interventions, this would be a good starting-point. 
+*Ordinal variables*: (0 means "no answer" given). For ordinal variables, to see whether a variable has let to more satisfaction, the skewedness can be interpreted: When both "satisfied" and "neutral or dissatisfied" plots are left skewed, the variable is likely to not have a great impact on the satisfaction rating (E.g. Departure time convenient). Further, the height of the barplots can reveal information on the factors that led to dissatisfaction. The heigher the "neutral or dissatisfied" plot in oppose to the "satisfied" plot, the more an item contributes to the dissatisfaction of the customers.   
 *Interval variables*: Many of the plots are heavily skewed, which must be considered when implementing the classifier. What is interesting is, that especially younger people are dissatisfied. But my initial hypothesis that younger people are more likely to travel in the "Eco" class is not really valid, since the correlation is -.13 (Age ~ Class, Spearmans Rho; See Figure 4). So there must be another reason.
 
 ```{r include=FALSE}
@@ -88,7 +88,7 @@ for (i in 1:length(X)){
     \includegraphics[width=.24\textwidth]{..//plots//plot2.jpg}\hfill
     \includegraphics[width=.24\textwidth]{..//plots//plot4.jpg}\hfill
     \includegraphics[width=.24\textwidth]{..//plots//plot5.jpg}\hfill
-    \caption{Vizualisation of all nominal variables by criterion}\label{fig:foobar}
+    \caption{Visualization of all nominal variables by criterion}\label{fig:foobar}
 \end{figure}
 
 \begin{figure}
@@ -106,7 +106,7 @@ for (i in 1:length(X)){
     \includegraphics[width=.24\textwidth]{..//plots//plot18.jpg}\hfill
     \includegraphics[width=.24\textwidth]{..//plots//plot19.jpg}\hfill
     \includegraphics[width=.24\textwidth]{..//plots//plot20.jpg}\hfill
-    \caption{Vizualisation of all ordinal variables by criterion}\label{fig:foobar}
+    \caption{Visualization of all ordinal variables by criterion}\label{fig:foobar}
 \end{figure}
 
 \begin{figure}
@@ -114,17 +114,17 @@ for (i in 1:length(X)){
     \includegraphics[width=.24\textwidth]{..//plots//plot6.jpg}\hfill
     \includegraphics[width=.24\textwidth]{..//plots//plot21.jpg}\hfill
     \includegraphics[width=.24\textwidth]{..//plots//plot22.jpg}\hfill
-    \caption{Vizualisation of all intervall variables by criterion}\label{fig:foobar}
+    \caption{Visualization of all intervall variables by criterion}\label{fig:foobar}
 \end{figure}
 
 *Note: The plots are held really small to save space. But since the quality is really good, one can simply zoom in!*
 
 ## Correlation Analysis
 
-To extract teh variables that are likely to be associated with the criterion (satisfaction), a correlation analysis is conducted. The correlation coefficient is spearmans rho, which is made for correlation of ordinal variables. Spearmans rho, in oppose to Pearson is a rank correlation measure and is therefore, to a certain degree, also able to detect non-linear relationships. Spearmans Rho was preferred over Kendals Tau, because the dataset is rather large. Some say that Kendals Tau does better on smaller datasets.
+To extract variables that are likely to be associated with the criterion (satisfaction), a correlation analysis is conducted. The correlation coefficient is spearmans rho, which is made for correlation of ordinal variables. Spearmans Rho, in oppose to Pearson is a rank correlation measure and is therefore, to a certain degree, also able to detect non-linear relationships. Spearmans Rho was preferred over Kendals Tau, because the dataset is rather large. Some say that Kendals Tau does better on smaller datasets.
 There is quite a problem with a correlation analysis since some variables are nominal. This must be considered when interpreting the results. 
 
-Another problem with the correlation analysis at hand is, that there are no significance measures included. Since there are 24 comparisons, using p-values would likely lead to alpha inflation. Also, since the dataset is rather large, even small correlation coefficinets are likely to get significant. Bonferroni correcting the p-values would not be a good idea, since there are 22 (!) single comparisons meaning alpha would be 0.05/22 = 0.002272727. A slight different approach is being chosen. The correlation coefficient are evaluated against a well known/accepted criterion of Cohen, 1988. According to this criterion, correlations above +-0.5 are considered strong, correlations between +-0.3 and +- 0.5 are considered of medium strength and correlations between +-0.1 and +-0.3 are considered of low strength. Correlations between -0.1 and -0.1 are considered as non existing. (https://www.scirp.org/(S(lz5mqp453edsnp55rrgjct55))/reference/ReferencesPapers.aspx?ReferenceID=2041144)
+Another problem with the correlation analysis at hand is, that there are no significance measures included. Since there are 24 comparisons, using p-values would likely lead to alpha inflation. Also, since the dataset is rather large, even small correlation coefficinets are likely to get significant. Bonferroni correcting the p-values would not be a good idea, since there are 22 (!) single comparisons meaning alpha would be 0.05/22 = 0.002272727. A slight different approach is being chosen. The correlation coefficients are evaluated against a well known/accepted criterion of Cohen, 1988. According to this criterion, correlations above +-0.5 are considered strong, correlations between +-0.3 and +- 0.5 are considered of medium strength and correlations between +-0.1 and +-0.3 are considered of low strength. Correlations between -0.1 and +0.1 are considered as non existing. (https://www.scirp.org/(S(lz5mqp453edsnp55rrgjct55))/reference/ReferencesPapers.aspx?ReferenceID=2041144)
 Interpretation with cohens` coefficients are of course not perfect and do also come with limitations, but I think that they depict the reality better than significance levels from correlation-tests.
 
 Since spearmans rho does at least require ordinal ranks, correlating the items that code a 0 as "no answer" would lead to biased correlation coefficients (ordinal would mean, that 0 is worse than 1, which does not hold true for our data). I controlled for this problem by recoding 0 as NA and not using NAs for correlation (use = "complete.obs"). Considering that 0 does have a different meaning for "Flight Distance", "Departure Delay in Minutes" and "Arrival Delay in Minutes", these variables were not recoded with NA. Assumption for not considering NAs: **Choosing "no answer" is compeletely at random and does not have any relationship with satisfaction**
@@ -137,7 +137,7 @@ Consult the heatmap in Figure 4 to get insights to intercorrelations. Handle wit
 
 \begin{figure}
   \includegraphics{..//plots//heatmap.jpg}
-  \caption{The darker the color, the more significant the correlation. The correlation-coefficient is spearmans rho. Be careful with interpretation since there were nominal variables in there!}\label{fig:foobar}
+  \caption{The darker the color, the more higher the correlation. The correlation-coefficient is Spearmans Rho. Be careful with interpretation since there were nominal variables in there!}\label{fig:foobar}
 \end{figure}
 
 ```{r echo=FALSE}
@@ -203,7 +203,7 @@ yxcorrelation<-rbindlist(yxcorrelation)
 
 ## Exploratory Factor Analysis
 
-Since the task at hand asks for the factors that lead to customer satisfaction, it would be interesting to see, whether some variables/predictors are driven by "higher" factors.  The appropriate approach here would be to conduct an exploratory factor analysis, but this is not possible since some variables are qualitative and various other assumptions are not met. The approach chosen here is to conduct a Factor Analysis for Mixed Data (FAMD), since this approach is capable of working with qualitative and quantitative variables. The FAMD was carried out using the FactoMineR and the factoextra package. A tutorial can be found here: http://www.sthda.com/english/articles/31-principal-component-methods-in-r-practical-guide/115-famd-factor-analysis-of-mixed-data-in-r-essentials/ FAMD is not really a Factor Analysis but rather a principal component analysis. But due to the high similarity of the two, the interpretation is rather similar. What has to be said though is that in pca, the Dimensions are, unlike the factors in Factor Analysis, not uncorrelated. This must be considdered when interpreting the results. 
+Since the task at hand asks for the factors that lead to customer satisfaction, it would be interesting to see, whether some variables/predictors are driven by "higher" factors. The appropriate approach here would be to conduct an exploratory factor analysis, but this is not possible since some variables are qualitative and various other assumptions are not met. The approach chosen here is to conduct a Factor Analysis for Mixed Data (FAMD), since this approach is capable of working with qualitative and quantitative variables. The FAMD was carried out using the FactoMineR and the factoextra package. A tutorial can be found here: http://www.sthda.com/english/articles/31-principal-component-methods-in-r-practical-guide/115-famd-factor-analysis-of-mixed-data-in-r-essentials/ FAMD is not really a Factor Analysis but rather a principal component analysis. But due to the high similarity of the two, the interpretation is rather similar. What has to be said though is, that in pca, the Dimensions are, unlike the factors in Factor Analysis, not uncorrelated. This must be considered when interpreting the results. 
 
 ```{r echo=FALSE}
 factoranalysis<-FAMD(base = Xlabels[,-23],
@@ -213,26 +213,26 @@ factoranalysis<-FAMD(base = Xlabels[,-23],
 get_eigenvalue(factoranalysis) %>% kable(caption = "Explained portion of variance by the principal components")
 ```
 
-The results of the FAMD can be seen in Table 5 and in Figure 5. The results are not really great. Capturing a total of 17.8 percent of the total variance most likely leads to the interpretation that there are not really overarching factors. But still, a look at the variables that load primarely onto the first 4 dimensions cannot be a bad idea (Figure 6)
+The results of the FAMD can be seen in Table 5 and in Figure 5. The results are not really great. Capturing a total of 17.8 percent of the total variance most likely leads to the interpretation that there are not really overarching factors. But still, a look at the variables that load primarely onto the first 4 dimensions cannot be a bad idea (Figure 6).
 
 \begin{figure}
   \includegraphics[width=.48\textwidth]{..//plots//screeplot.png}
   \includegraphics[width=.48\textwidth]{..//plots//fact1.png}
-  \caption{Left: Screeplot of FAMD: Traditionally one would only accept dimension 1, but variance on this dimension is really small; Right: The variables plotted on the first two dimensions}\label{fig:foobar}
+  \caption{Left: Screeplot of FAMD: Traditionally one would only accept dimension 1, but variance on this dimension is pretty small; Right: The variables plotted on the first two dimensions}\label{fig:foobar}
 \end{figure}
 
 \begin{figure}
   \includegraphics[width=.24\textwidth]{..//plots//fact2.png}
   \includegraphics[width=.24\textwidth]{..//plots//fact3.png}
-  \includegraphics[width=.24\textwidth]{..//plots//fact3.png}
   \includegraphics[width=.24\textwidth]{..//plots//fact4.png}
+  \includegraphics[width=.24\textwidth]{..//plots//fact5.png}
   \caption{Zoom in to see more. The variables that load to the first 4 dimensions. The red dashed line on the graph above indicates the expected average value, if the contributions were uniform.}\label{fig:foobar}
 \end{figure}
 
-As stated above the validity of an interpretation of the dimensions is vastly in doubt. However, here are possible Factors that the first two dimensions might cover (Note again that the dimensions are NOT uncorrelated and some items load on more than one dimension):
+As stated above the validity of an interpretation of the dimensions is vastly in doubt. However, here are possible factors that the first two dimensions might cover (Note again that the dimensions are NOT uncorrelated and some items load on more than one dimension):
 
 * **Dimension 1**: Inflight entertainment, Seat comfort, Cleanliness, Online boarding, Food and drink, On-board service, Inflight service, Baggage handling, Class, Leg room service. 
-**Interpretation**: These are mostly variables that concern inflight services and inflight personal confort.
+**Interpretation**: These are mostly variables that concern inflight services and inflight personal comfort.
 
 * **Dimension 2**: Ease of online booking, Inflight wifi service, Arrival/Departure time convenient, Gate location.
 **Interpretation**: These are mostly variables that concern factors that surround the flight. 
@@ -241,19 +241,19 @@ Conclusion: FAMD is not really useful here and no conclusion can be drawn from t
 
 ## Machine Learning for Deeper Insights.
 
-With the dataset at hand an the task concerning it, it is actually not ideal to use a model that maximized accuracy but is not interpretable. However, the assignment, this report is for, requires to maximize accuracy, so the modelling here is split into two parts: First there will be a discussion of decision trees, which also includes in interpretation for the task. Second there will be an accuracy optimising part, where ensemble methods (all treebased) were implemented to maximize predictive validity. These models cannot directly be used for interpretation, since they are blackbox models (at least the boosting method). 
+With the dataset and the task at hand, it is actually not ideal to use a model that maximizes accuracy but is not interpretable. However, the assignment, this report is for, requires to maximize accuracy, so the modeling here is split into two parts: First there will be a discussion of decision trees, which also includes in interpretation for the task. Second there will be an accuracy optimizing part, where ensemble methods (all treebased) were implemented to maximize predictive validity. These models cannot directly be used for interpretation, since they are blackbox models (at least the boosting method). 
 
 ### Cross Validation
 
-The data was first split into a training dataset and a testing dataset (80% vs. 20%). The training dataset was further split into ten folds. Therefore, to improve model robustness **10 fold cross validation** was used. After the model fit was estimated, it got benchmarked on the training dataset (in-sample) and the testing dataset (out-of-sample). The model fit has never seen the data from the testing dataset. 
-The 10-fold cross validation technique could have been further extended with a repeated cross validation. However, since I wanted to use the same validation technique for all my models and because the ensemble methods were already computationally expensive themselves, I did decide against it. 
+The data was first split into a training dataset and a testing dataset (80% vs. 20%). The training dataset was further split into ten folds. Therefore, to improve model robustness **10-fold cross validation** was used. After the model was fit to the data, it got benchmarked on the training dataset (in-sample) and the testing dataset (out-of-sample). The trained model has therefore never seen the data from the testing dataset. 
+The 10-fold cross validation technique could have been further extended with a repeated cross validation. However, since I wanted to use the same validation technique for all my models and because the ensemble methods were already computationally expensive themselves, I did decide against it. (10 folds repeated 10 times would lead tho 100 models that had to be fit for every single hyperparameter combination)
 
 All models were fitted in parallel. All models were implemented using the caret package. 
 
-### Decision tree analysis
+### Decision Tree Analysis
 
 A decision tree seems appropriate for the task. Decision trees have several benefits: They are insensitive to outliers (so no outlier detection was carried out), they are insensitive to skewed data (so no transformations were used) and they work well with mixed data (nominal, ordinal and interval). Further, decision trees are easily to interpret, which is important for finding interventions for the airline company. 
-It is also good to mention, that decision trees exploit variables by their predictive validity and do automatically exclude variables, that are not of further use. Therefore, no variables were excluded as predictors. 
+It is also good to mention, that decision trees exploit variables by their predictive validity and do automatically exclude variables, that are not of further use. Therefore, no variables were excluded as predictors beforehand. 
 The final tree provided an accuracy of 0.8441 in-sample and 0.8407 out-of-sample, which is acceptable considering the a priori probability of 0.56. The mean accuracy of the resampling in the cross validation is 0.85 (this is the value that can be generalized/that has the most validity).
 
 Since decision trees exploit variables as much as possible, they contain information on the importance of the variables. The variables were ranked as follows: 
@@ -271,7 +271,7 @@ varranks %>% kable(caption = "Variables with the most importance")
 
 ```
 
-Online Boarding (neutral or dissatisfied when Online Boarding < 4) and Type of Travel (Personal Travel (2) leads to neutral or dissatisfied) represent the two primary nodes. This can be used to make the decision about what the intervention will look like: Improving Online Boarding would probably lead to great improvement of the satisfaction rating. Type of Travel might mean, that the conditions for personal travel are not really good, interventions in this regard would also improve the satisfaction rating. The output (Figure 7) further shows, that when customers travel in the Eco class, they also state that they are dissatisfied. Improving conditions in this class, would therefore lead to better satisfaction ratings.
+Online Boarding (neutral or dissatisfied when Online Boarding < 4) and Type of Travel (Personal Travel (2) leads to neutral or dissatisfied) represent the two primary nodes. This can be used to make the decision about what the intervention will look like: Improving Online Boarding would probably lead to great improvement of the satisfaction rating. Type of Travel might mean, that the conditions for personal travel are not really good, interventions in this regard would also improve the satisfaction rating. The output (Figure 7) further shows, that when customers travel in the Eco class, they state that they are dissatisfied. Improving conditions in this class, would therefore lead to better satisfaction ratings.
 
 \begin{figure}
   \includegraphics[width=.48\textwidth]{..//plots//decisiontree.jpg}
@@ -281,7 +281,7 @@ Online Boarding (neutral or dissatisfied when Online Boarding < 4) and Type of T
 
 ### Improving Accuracy With Ensemble Methods.
 
-For improving accuracy, I still wanted to stick to tree based methods. Therefore, I used random forest as a bagging approach and gradient boosting sequential trees as a boosting approach. 
+For improving accuracy, I still wanted to stick to tree based methods. Therefore, I used Random Forest as a bagging approach and Gradient Boosting Sequential Trees as a boosting approach. 
 
 #### Random Forest
 
@@ -289,11 +289,11 @@ The random forest was estimated using the Rborist package in caret which holds a
 
 #### Gradient Boosting Sequential Trees. 
 
-Gradient boosting sequential trees were implemented using the gbm package in caret. The model has 4 parameters, two of them are hold constant by default. To vary them as well, I specified custom values for all parameters. The best values estimated by the model for the 4 parameters are: n.trees: 250, interaction.depth = 7, shrinkage = 0.15 and n.minobsinnode = 15. For all parameters the maximum value specified in advance (in the gradientboostgrid) was chosen. I think that accuracy could be further improved by allowing the model higher values in all parameters. However, higher values, for example, in the n.trees parameter will increase computation times by quite a bit, which is why I have not re-estimated the model. The gradient boosting sequential trees were able to achieve an accuracy of 0.9624 in sample and an accuracy of 0.9615 out of sample. Therefore, they benchmark slightly worse than the random forest. I assume that with better parameters, they could beat the random forest. However, the mean accuracy of the resampling in the cross validation is 0.96 (this is the value that can be generalized/that has the most validity), which is better than the random forest.
+Gradient Boosting Sequential Trees were implemented using the gbm package in caret. The model has 4 parameters, two of them are being hold constant by default. To vary them as well, I specified custom values for all parameters. The best values estimated by the model for the 4 parameters are: n.trees: 250, interaction.depth = 7, shrinkage = 0.15 and n.minobsinnode = 15. For all parameters the maximum value specified in advance (in the gradientboostgrid) was chosen. I think that accuracy could be further improved by allowing the model higher values in all parameters. However, higher values, for example, in the n.trees parameter will increase computation times by quite a bit, which is why I have not re-estimated the model. The Gradient Boosting Sequential Trees were able to achieve an accuracy of 0.9624 in sample and an accuracy of 0.9615 out of sample. Therefore, they benchmark slightly worse than the random forest (not considering the resampling mean). I assume that with better parameters, they could beat the random forest. However, the mean accuracy of the resampling in the cross validation is 0.96 (this is the value that can be generalized/that has the most validity), which is better than the random forest.
 
 #### Model Selection.
 
-For selecting the best model, boxplots of the 10 folds (from cross validation) of all tree models were compared. For both Kappa and Accuracy, the Gradient boosting sequential trees seem to be slightly better than the random forest. **So this means that the Gradient Boosting Sequential Tree Model is my best model and my final choice**
+For selecting the best model, boxplots of the 10 folds (from cross validation) of all tree models were compared. For both Kappa and Accuracy, the Gradient Boosting Sequential Trees seem to be slightly better than the random forest. **So this means that the Gradient Boosting Sequential Tree Model is my best model and my final choice**
 
 \begin{figure}
   \includegraphics[width=.48\textwidth]{..//plots//comparison.jpg}
